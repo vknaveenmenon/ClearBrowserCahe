@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Base directory for Chrome cache
+CACHE_BASE_DIR="/home/<your_username>/.cache/google-chrome/"
+
+# Iterate through each profile directory and clear the cache
+for profile_dir in "$CACHE_BASE_DIR"*; do
+  if [ -d "$profile_dir" ]; then
+    rm -rf "${profile_dir}/Cache"/*
+    echo "Cleared cache for profile: ${profile_dir}"
+  fi
+done

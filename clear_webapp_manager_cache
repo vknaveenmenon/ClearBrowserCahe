@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Base directory for WebApp Manager apps (adjust this as needed)
+BASE_DIR="/home/<your_username>/.local/share/ice/profiles/"
+
+# Iterate through each web app directory and clear the cache
+for webapp_dir in "$BASE_DIR"*; do
+  if [ -d "$webapp_dir/Default/Cache" ]; then
+    rm -rf "${webapp_dir}/Default/Cache"/*
+    echo "Cleared cache for web app: ${webapp_dir}"
+  fi
+done

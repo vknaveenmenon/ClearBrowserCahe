@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Base directory for Firefox profiles
+FIREFOX_BASE_DIR="/home/<your_username>/.mozilla/firefox/"
+
+# Iterate through each profile directory and clear the cache
+for profile_dir in "$FIREFOX_BASE_DIR"*; do
+  if [ -d "$profile_dir/cache2" ]; then
+    rm -rf "${profile_dir}/cache2"/*
+    echo "Cleared Firefox cache for profile: ${profile_dir}"
+  fi
+done
